@@ -7,7 +7,7 @@ export const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 
-// Allow only the web-app running the api
+// Allow only the web-app to run the api
 app.use(
   cors({
     origin: "http://localhost:3000",

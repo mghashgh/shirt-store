@@ -19,14 +19,9 @@ export const calculateTotal = (
   const groups = [];
   while (counts.length > 0) {
     groups.push(counts.length);
-    for (let i = 0; i < counts.length; i++) {
-      counts[i]--;
-    }
-    counts = counts.filter((count) => count !== 0);
+    counts = counts.map((count) => count - 1).filter((count) => count !== 0);
   }
-  let total = 0;
-  for (let group of groups) {
-    total += group * ITEM_PRICE * DISCOUNT_MAP[group];
-  }
-  return total;
+  return groups.reduce((total, group) => {
+    return total + group * ITEM_PRICE * DISCOUNT_MAP[group];
+  }, 0);
 };
