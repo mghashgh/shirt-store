@@ -6,7 +6,7 @@ To run the web application, first navigate to web-app folder
 cd web-app
 ```
 
-Then, you need to stall the package dependencies:
+Then, you need to install the package dependencies:
 
 ```
 npm install

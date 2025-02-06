@@ -6,7 +6,7 @@ To run the API, first navigate to api folder:
 cd api
 ```
 
-Then, you need to stall the package dependencies:
+Then, you need to install the package dependencies:
 
 ```
 npm install
