@@ -7,6 +7,13 @@ export const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 
+// Allow only the web-app running the api
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
+
 // API endpoint to calculate total in shopping cart
 app.post("/total", (req: Request, res: Response) => {
   // Retrieve item counts from query parameters
