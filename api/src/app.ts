@@ -1,7 +1,8 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
+import { calculateTotal } from "./calculateTotal";
 
-const app = express();
-const port = 3333; // Port for the backend API
+export const app = express();
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -32,16 +33,12 @@ app.post("/total", (req: Request, res: Response) => {
     typeof shirt5 !== "number"
   ) {
     res.status(400).json({ error: "All item counts must be valid numbers" });
+    return;
   }
 
   // Perform the calculation
-  const total = shirt1 + shirt2 + shirt3 + shirt4 + shirt5;
+  const total = calculateTotal(shirt1, shirt2, shirt3, shirt4, shirt5);
 
   // Return the result as a response
   res.status(200).json({ total });
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`API is running at http://localhost:${port}`);
 });
